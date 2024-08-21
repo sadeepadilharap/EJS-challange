@@ -26,7 +26,7 @@ app.get("/",function(req,res){
 
 });
 
-app.get("/about",function(re1,res){
+app.get("/about",function(req,res){
   res.render("about", {aboutContent : aboutContent});
 });
 
@@ -57,9 +57,11 @@ app.get("/posts/:postName", function(req,res){
     const storedTitle = _.lowerCase(post.title);
 
     if(storedTitle === requestedTitle){
+      res.render("post", {
+        title: post.title,
+        content: post.content
+      })
 
-
-      
     }
   })
 })
